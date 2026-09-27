@@ -71,14 +71,7 @@ export default function Home() {
               PyMigrate
             </h1>
           </div>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-          >
-            Documentation
-          </a>
+
         </div>
       </header>
 
