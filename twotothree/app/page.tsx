@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Hero } from "@/components/hero/hero";
 
 export default function Home() {
   const [inputCode, setInputCode] = useState("");
@@ -42,46 +43,16 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans selection:bg-purple-500/30 flex flex-col">
-      {/* Background gradients */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[25%] -left-[10%] w-[50%] h-[50%] rounded-full bg-purple-900/20 blur-[120px]" />
-        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-blue-900/10 blur-[120px]" />
-      </div>
-
-      <header className="relative z-10 border-b border-white/5 bg-black/20 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-white"
-              >
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-            </div>
-            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 tracking-tight">
-              ModernizePy
-            </h1>
-          </div>
-
-        </div>
-      </header>
-
-      <main className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 py-8">
-        <div className="text-center mb-10 mt-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
-            Modernize Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Python</span>
+    <div className="min-h-screen bg-neutral-950 text-zinc-100 font-sans selection:bg-emerald-500/30 flex flex-col">
+      <Hero />
+      
+      <section id="converter" className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 scroll-mt-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-white">
+            Conversion Workspace
           </h2>
-          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-            Instantly translate legacy Python 2 scripts into clean, idiomatic Python 3 using advanced AI.
+          <p className="text-neutral-400 max-w-xl mx-auto">
+            Paste your legacy Python 2 script below to get a modernized Python 3 version instantly.
           </p>
         </div>
 
@@ -114,7 +85,7 @@ export default function Home() {
             <button
               onClick={handleConvert}
               disabled={isLoading || !inputCode.trim()}
-              className="group relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white shadow-lg shadow-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white shadow-lg shadow-emerald-900/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 active:scale-95"
               aria-label="Convert Code"
             >
               {isLoading ? (
@@ -160,11 +131,11 @@ export default function Home() {
               {isLoading && !outputCode && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/20 backdrop-blur-sm z-10">
                   <div className="flex gap-2">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" />
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" />
                   </div>
-                  <p className="text-sm text-purple-300/80 font-medium animate-pulse">Upgrading your code...</p>
+                  <p className="text-sm text-emerald-300/80 font-medium animate-pulse">Upgrading your code...</p>
                 </div>
               )}
               {error ? (
@@ -187,9 +158,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </section>
       
-      <footer className="relative z-10 py-6 text-center text-sm text-zinc-600 border-t border-white/5 mt-8">
+      <footer className="relative z-10 py-8 text-center text-sm text-zinc-600 border-t border-white/5 mt-auto">
         <p>Powered by AI &bull; Python 2 to 3 Migration Tool</p>
       </footer>
     </div>
