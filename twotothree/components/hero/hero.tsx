@@ -7,11 +7,7 @@ import { LogoIcon } from "./logo-icon";
 import React from "react";
 
 export function Hero() {
-  const navLinks = [
-    { label: "Features", href: "#features" },
-    { label: "Converter", href: "#converter" },
-    { label: "Docs", href: "http://localhost:8000/docs" },
-  ];
+
 
   const trustedBrands = ["Python", "FastAPI", "Gemini", "Next.js"];
 
@@ -23,46 +19,33 @@ export function Hero() {
         <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] rounded-full bg-blue-900/10 blur-[120px]" />
       </div>
 
-      <header className="relative z-10 border-b border-white/5 bg-neutral-950/50 backdrop-blur-md">
-        <div className="w-full px-4 md:px-8 h-16 flex items-center justify-between">
+      <header className="relative z-10 pt-6">
+        <div className="w-full px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 flex items-center justify-center">
               <LogoIcon className="w-8 h-8 text-white" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white">ModernizePy</span>
+            <motion.span
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-xl font-bold tracking-tight text-white"
+            >
+              ModernizePy
+            </motion.span>
           </div>
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-neutral-400 hover:text-emerald-400 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
           <div className="flex items-center gap-4">
             <Link
               href="#converter"
               className="text-sm font-semibold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors"
             >
-              Start Converting
+              Try Now
             </Link>
           </div>
         </div>
       </header>
 
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-16 max-w-7xl mx-auto w-full text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-emerald-300 mb-8"
-        >
-          <Terminal className="w-4 h-4" />
-          <span>Python 2.7 End of Life was January 1, 2020</span>
-        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
