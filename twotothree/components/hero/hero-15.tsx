@@ -39,10 +39,10 @@ export function Hero15({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 flex items-center justify-center gap-2"
+          className="mb-8 flex items-center justify-center gap-3"
         >
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-            <LogoIcon className="w-6 h-6 text-white" />
+          <div className="w-12 h-12 flex items-center justify-center">
+            <LogoIcon className="w-10 h-10 text-white" />
           </div>
           <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 tracking-tight">
             {brandName}

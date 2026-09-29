@@ -26,8 +26,8 @@ export function Hero() {
       <header className="relative z-10 border-b border-white/5 bg-neutral-950/50 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-              <LogoIcon className="w-6 h-6 text-white" />
+            <div className="w-9 h-9 flex items-center justify-center">
+              <LogoIcon className="w-8 h-8 text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight text-white">ModernizePy</span>
           </div>

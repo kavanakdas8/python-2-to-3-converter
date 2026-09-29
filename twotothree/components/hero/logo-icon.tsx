@@ -13,16 +13,13 @@ export function LogoIcon({ className, ...props }: React.SVGProps<SVGSVGElement>)
       className={className}
       {...props}
     >
-      {/* Top Snake (Python 3 - Blue/Emerald) */}
-      <path d="M15.5 3c-4.5 0-4.5 2-4.5 2V8h5v1H7C4 9 4 12 4 12s0 3 3 3h1.5v-3.5C8.5 10 10 8.5 11.5 8.5h6.5c1.5 0 2 1.5 2 3v4c0 1.5-1.5 2-3 2h-1v-2H11v4s0 3 4.5 3 4.5-2 4.5-2V19h-5v-1h9c3 0 3-3 3-3s0-3-3-3h-1.5v3.5c0 1.5-1.5 3-3 3h-6.5c-1.5 0-2-1.5-2-3v-4c0-1.5 1.5-2 3-2h1v2h5v-4s0-3-4.5-3z" />
+      {/* Top-Left Snake */}
+      <path d="M 12 11.5 L 12 6 A 2 2 0 0 1 14 4 L 18 4 A 2 2 0 0 1 20 6 L 20 11.5 L 16.5 11.5 L 16.5 15.5 L 14.5 15.5 L 14.5 19.5 L 12 19.5 L 6 19.5 A 2 2 0 0 1 4 17.5 L 4 13.5 A 2 2 0 0 1 6 11.5 Z" />
+      <circle cx="16" cy="7.5" r="1" fill="currentColor" stroke="none" />
       
-      {/* Eyes */}
-      <circle cx="11.5" cy="5.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="19.5" cy="24.5" r="1" fill="currentColor" stroke="none" />
-      
-      {/* Morph / Fast Forward Icon in Center */}
-      <path d="M12 11l4 4-4 4" strokeWidth="2.5" className="text-emerald-400" />
-      <path d="M16 11l4 4-4 4" strokeWidth="2.5" className="text-emerald-400" />
+      {/* Bottom-Right Snake */}
+      <path d="M 20 20.5 L 20 26 A 2 2 0 0 1 18 28 L 14 28 A 2 2 0 0 1 12 26 L 12 20.5 L 15.5 20.5 L 15.5 16.5 L 17.5 16.5 L 17.5 12.5 L 20 12.5 L 26 12.5 A 2 2 0 0 1 28 14.5 L 28 18.5 A 2 2 0 0 1 26 20.5 Z" />
+      <circle cx="16" cy="24.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }
