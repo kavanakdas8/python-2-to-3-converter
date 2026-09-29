@@ -24,7 +24,7 @@ export function Hero() {
       </div>
 
       <header className="relative z-10 border-b border-white/5 bg-neutral-950/50 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="w-full px-4 md:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 flex items-center justify-center">
               <LogoIcon className="w-8 h-8 text-white" />
