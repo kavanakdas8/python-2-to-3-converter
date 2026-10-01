@@ -19,8 +19,8 @@ interface ContinuousTabsProps {
 /* ---------- Defaults ---------- */
 const DEFAULT_TABS: TabItem[] = [
     { id: "home", label: "Home", href: "/" },
+    { id: "how-it-works", label: "How it works", href: "#how-it-works" },
     { id: "faq", label: "FAQ", href: "#faq" },
-    { id: "about", label: "About", href: "#about" },
 ];
 
 export const ContinuousTabs: FC<ContinuousTabsProps> = ({
@@ -83,8 +83,9 @@ export const ContinuousTabs: FC<ContinuousTabsProps> = ({
                                     }}
                                     className="
                       absolute inset-0 rounded-full
-                      bg-[#252528] dark:bg-zinc-100
-                      shadow-xs
+                      bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-violet-500/20
+                      border border-white/10
+                      shadow-[0_0_15px_rgba(59,130,246,0.15)]
                     "
                                 />
                             )}
@@ -94,8 +95,8 @@ export const ContinuousTabs: FC<ContinuousTabsProps> = ({
                                 layout="position"
                                 className={`relative z-10 text-sm sm:text-base font-semibold transition-colors duration-200
                     ${isActive
-                                        ? "text-[#EDEDEC] dark:text-zinc-950"
-                                        : "text-[#343437] dark:text-zinc-500 hover:text-[#62625D] dark:hover:text-zinc-300"
+                                        ? "text-white"
+                                        : "text-neutral-400 hover:text-white"
                                     }
                   `}
                             >

@@ -1,162 +1,145 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import { Hero } from "@/components/hero/hero";
+import { LandingNav } from "@/components/landing-nav";
 
 export default function Home() {
-  const [inputCode, setInputCode] = useState("");
-  const [outputCode, setOutputCode] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleConvert = async () => {
-    if (!inputCode.trim()) {
-      setError("Please enter some Python 2 code.");
-      return;
-    }
-
-    setIsLoading(true);
-    setError(null);
-    setOutputCode("");
-
-    try {
-      const response = await fetch("http://localhost:8000/convert", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ code: inputCode }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || "Conversion failed.");
-      }
-
-      const data = await response.json();
-      setOutputCode(data.converted_code);
-    } catch (err: any) {
-      setError(err.message || "An unexpected error occurred.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-zinc-100 font-sans selection:bg-emerald-500/30 flex flex-col">
+    <div className="min-h-screen bg-[#050608] text-zinc-100 font-sans selection:bg-emerald-500/30 flex flex-col">
+      <LandingNav />
       <Hero />
-      
-      <section id="converter" className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 scroll-mt-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-white">
-            Conversion Workspace
+
+      {/* How it works */}
+      <section id="how-it-works" className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">
+            Three steps.
           </h2>
-          <p className="text-neutral-400 max-w-xl mx-auto">
-            Paste your legacy Python 2 script below to get a modernized Python 3 version instantly.
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
+            One modern codebase.
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-white">01 — Paste your code</h3>
+            <p className="text-neutral-400 leading-relaxed">Drop your existing Python 2 code into the editor. No setup required.</p>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-white">02 — Convert</h3>
+            <p className="text-neutral-400 leading-relaxed">ModernizePy analyzes your code and applies the changes needed for Python 3.</p>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-white">03 — Review &amp; use</h3>
+            <p className="text-neutral-400 leading-relaxed">Review the converted code, copy it, and continue building with Python 3.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why ModernizePy */}
+      <section className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5">
+        <div className="mb-16 max-w-2xl">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-white">
+            Legacy code shouldn't slow you down.
+          </h2>
+          <p className="text-lg text-neutral-400">
+            Python 2 is old. Your code doesn't have to stay that way.
           </p>
         </div>
-
-        <div className="flex-1 flex flex-col lg:flex-row gap-6 min-h-[500px]">
-          {/* Input Section */}
-          <div className="flex-1 flex flex-col rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden shadow-2xl transition-all duration-300 hover:border-white/20">
-            <div className="h-12 border-b border-white/5 bg-white/5 flex items-center px-4 justify-between">
-              <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
-                Python 2 (Legacy)
-              </span>
-              <button
-                onClick={() => setInputCode("")}
-                className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
-              >
-                Clear
-              </button>
-            </div>
-            <textarea
-              value={inputCode}
-              onChange={(e) => setInputCode(e.target.value)}
-              placeholder="# Paste your Python 2 code here...\nprint 'Hello World'\nfor i in xrange(10):\n    pass"
-              className="flex-1 w-full bg-transparent p-6 text-sm font-mono text-zinc-200 focus:outline-none resize-none placeholder:text-zinc-700"
-              spellCheck="false"
-            />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <h3 className="text-lg font-bold text-white mb-3">Less manual work</h3>
+            <p className="text-neutral-400 text-sm leading-relaxed">Skip repetitive syntax changes and focus on the parts of your code that actually matter.</p>
           </div>
-
-          {/* Controls */}
-          <div className="flex flex-col justify-center items-center gap-4 py-4 lg:py-0">
-            <button
-              onClick={handleConvert}
-              disabled={isLoading || !inputCode.trim()}
-              className="group relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white shadow-lg shadow-emerald-900/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 active:scale-95"
-              aria-label="Convert Code"
-            >
-              {isLoading ? (
-                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-8 h-8 group-hover:translate-x-0.5 transition-transform"
-                >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              )}
-            </button>
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <h3 className="text-lg font-bold text-white mb-3">Clear conversions</h3>
+            <p className="text-neutral-400 text-sm leading-relaxed">See your original and modernized code side by side.</p>
           </div>
-
-          {/* Output Section */}
-          <div className="flex-1 flex flex-col rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden shadow-2xl transition-all duration-300 hover:border-white/20">
-            <div className="h-12 border-b border-white/5 bg-white/5 flex items-center px-4 justify-between">
-              <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                Python 3 (Modern)
-              </span>
-              {outputCode && (
-                <button
-                  onClick={() => navigator.clipboard.writeText(outputCode)}
-                  className="text-xs flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 text-zinc-300 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                  </svg>
-                  Copy
-                </button>
-              )}
-            </div>
-            <div className="flex-1 relative">
-              {isLoading && !outputCode && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/20 backdrop-blur-sm z-10">
-                  <div className="flex gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" />
-                  </div>
-                  <p className="text-sm text-emerald-300/80 font-medium animate-pulse">Upgrading your code...</p>
-                </div>
-              )}
-              {error ? (
-                <div className="p-6 text-sm text-red-400 font-mono flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 shrink-0 mt-0.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="12" x2="12" y1="8" y2="12"/>
-                    <line x1="12" x2="12.01" y1="16" y2="16"/>
-                  </svg>
-                  {error}
-                </div>
-              ) : (
-                <textarea
-                  readOnly
-                  value={outputCode}
-                  placeholder={isLoading ? "" : "Converted code will appear here..."}
-                  className="w-full h-full bg-transparent p-6 text-sm font-mono text-zinc-200 focus:outline-none resize-none placeholder:text-zinc-700"
-                />
-              )}
-            </div>
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <h3 className="text-lg font-bold text-white mb-3">Built for developers</h3>
+            <p className="text-neutral-400 text-sm leading-relaxed">A focused workspace with nothing getting in the way of the migration.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Conversion Section Visual */}
+      <section className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5 text-center">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-neutral-500">
+            From legacy.
+          </h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+            To modern.
+          </h2>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div className="text-left space-y-2 p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl w-full md:w-80">
+            <h3 className="text-xl font-bold text-white mb-4">Python 2</h3>
+            <p className="text-neutral-400">Old syntax.</p>
+            <p className="text-neutral-400">Old dependencies.</p>
+            <p className="text-neutral-400">Old assumptions.</p>
+          </div>
+          <div className="text-neutral-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rotate-90 md:rotate-0"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+          <div className="text-left space-y-2 p-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-xl w-full md:w-80 shadow-[0_0_30px_rgba(52,211,153,0.1)]">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500 mb-4">Python 3</h3>
+            <p className="text-emerald-100/70">Modern syntax.</p>
+            <p className="text-emerald-100/70">Cleaner code.</p>
+            <p className="text-emerald-100/70">Ready for what comes next.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="relative z-10 flex flex-col max-w-3xl mx-auto w-full px-6 py-24 border-t border-white/5">
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-12 text-white text-center">
+          Questions before you convert.
+        </h2>
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-lg font-bold text-white mb-2">What does ModernizePy do?</h3>
+            <p className="text-neutral-400">ModernizePy helps convert Python 2 code into Python 3-compatible code.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white mb-2">Do I need to install anything?</h3>
+            <p className="text-neutral-400">No. Paste your code into the workspace and start the conversion.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white mb-2">Can I edit the converted code?</h3>
+            <p className="text-neutral-400">Yes. The converted output is provided so you can review, modify, and use it in your project.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white mb-2">Does ModernizePy support large files?</h3>
+            <p className="text-neutral-400">ModernizePy is designed for code migration, but very large or complex projects may require additional manual review after conversion.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-white mb-2">Is the conversion automatic?</h3>
+            <p className="text-neutral-400">The conversion is automated, but generated code should always be reviewed before being used in production.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full px-6 py-32 border-t border-white/5">
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+          Stop maintaining legacy Python.
+        </h2>
+        <p className="text-xl text-neutral-400 mb-10">
+          Move your code forward.
+        </p>
+        <Link
+          href="/convert"
+          className="group relative flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-[16px] font-bold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(52,211,153,0.3)] hover:shadow-[0_0_40px_rgba(52,211,153,0.5)] hover:-translate-y-1 mb-8"
+        >
+          Start converting
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+        </Link>
+        <div className="text-neutral-500 text-sm space-y-1">
+          <p>No setup.</p>
+          <p>No complicated workflow.</p>
+          <p>Just Python 2 &rarr; Python 3.</p>
         </div>
       </section>
       
