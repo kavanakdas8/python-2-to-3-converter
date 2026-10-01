@@ -34,6 +34,13 @@ export function Hero() {
               ModernizePy
             </motion.span>
           </div>
+          
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">Home</Link>
+            <Link href="#about" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">About</Link>
+            <Link href="#faq" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">FAQ</Link>
+          </nav>
+
           <div className="flex items-center gap-4">
             <Link
               href="#converter"
