@@ -3,6 +3,35 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero/hero";
 import { LandingNav } from "@/components/landing-nav";
+import { Faq } from "@/components/faq";
+
+const faqs = [
+  {
+    id: "item-1",
+    question: "What does ModernizePy do?",
+    answer: "ModernizePy helps convert Python 2 code into Python 3-compatible code."
+  },
+  {
+    id: "item-2",
+    question: "Do I need to install anything?",
+    answer: "No. Paste your code into the workspace and start the conversion."
+  },
+  {
+    id: "item-3",
+    question: "Can I edit the converted code?",
+    answer: "Yes. The converted output is provided so you can review, modify, and use it in your project."
+  },
+  {
+    id: "item-4",
+    question: "Does ModernizePy support large files?",
+    answer: "ModernizePy is designed for code migration, but very large or complex projects may require additional manual review after conversion."
+  },
+  {
+    id: "item-5",
+    question: "Is the conversion automatic?",
+    answer: "The conversion is automated, but generated code should always be reviewed before being used in production."
+  }
+];
 
 export default function Home() {
 
@@ -93,33 +122,13 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="relative z-10 flex flex-col max-w-3xl mx-auto w-full px-6 py-24 border-t border-white/5">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-12 text-white text-center">
-          Questions before you convert.
-        </h2>
-        <div className="space-y-8">
-          <div>
-            <h3 className="text-lg font-bold text-white mb-2">What does ModernizePy do?</h3>
-            <p className="text-neutral-400">ModernizePy helps convert Python 2 code into Python 3-compatible code.</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-white mb-2">Do I need to install anything?</h3>
-            <p className="text-neutral-400">No. Paste your code into the workspace and start the conversion.</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-white mb-2">Can I edit the converted code?</h3>
-            <p className="text-neutral-400">Yes. The converted output is provided so you can review, modify, and use it in your project.</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-white mb-2">Does ModernizePy support large files?</h3>
-            <p className="text-neutral-400">ModernizePy is designed for code migration, but very large or complex projects may require additional manual review after conversion.</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-white mb-2">Is the conversion automatic?</h3>
-            <p className="text-neutral-400">The conversion is automated, but generated code should always be reviewed before being used in production.</p>
-          </div>
-        </div>
-      </section>
+      <div id="faq" className="relative z-10 w-full border-t border-white/5 bg-[#050608]">
+        <Faq 
+          badge="Frequently asked questions"
+          title="Questions before you convert."
+          faqs={faqs}
+        />
+      </div>
 
       {/* Final CTA */}
       <section className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full px-6 py-32 border-t border-white/5">
