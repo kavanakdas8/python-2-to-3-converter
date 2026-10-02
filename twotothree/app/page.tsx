@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Hero } from "@/components/hero/hero";
 import { LandingNav } from "@/components/landing-nav";
 import { Faq } from "@/components/faq";
+import { Footer } from "@/components/footer";
 
 const faqs = [
   {
@@ -130,31 +131,9 @@ export default function Home() {
         />
       </div>
 
-      {/* Final CTA */}
-      <section className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full px-6 py-32 border-t border-white/5">
-        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-          Stop maintaining legacy Python.
-        </h2>
-        <p className="text-xl text-neutral-400 mb-10">
-          Move your code forward.
-        </p>
-        <Link
-          href="/convert"
-          className="group relative flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-[16px] font-bold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(52,211,153,0.3)] hover:shadow-[0_0_40px_rgba(52,211,153,0.5)] hover:-translate-y-1 mb-8"
-        >
-          Start converting
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
-        </Link>
-        <div className="text-neutral-500 text-sm space-y-1">
-          <p>No setup.</p>
-          <p>No complicated workflow.</p>
-          <p>Just Python 2 &rarr; Python 3.</p>
-        </div>
-      </section>
+
       
-      <footer className="relative z-10 py-8 text-center text-sm text-zinc-600 border-t border-white/5 mt-auto">
-        <p>Powered by AI &bull; Python 2 to 3 Migration Tool</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
