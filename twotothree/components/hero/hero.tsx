@@ -45,7 +45,7 @@ export function Hero() {
 
         {/* Hero Main Content */}
         <div className="flex flex-1 items-center justify-center px-6 pb-16 sm:pb-24">
-          <div className="flex max-w-4xl flex-col items-center text-center">
+          <div className="flex max-w-4xl flex-col items-center text-center mt-16 sm:mt-24">
 
             {/* Title: majestic slow rise */}
             <motion.h1
