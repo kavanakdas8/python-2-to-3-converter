@@ -33,7 +33,32 @@ export const ContinuousTabs: FC<ContinuousTabsProps> = ({
 
     useEffect(() => {
         requestAnimationFrame(() => setIsMounted(true));
-    }, []);
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 3;
+            let currentActive = "home";
+
+            for (const tab of tabs) {
+                if (tab.href && tab.href.startsWith("#")) {
+                    const el = document.querySelector(tab.href) as HTMLElement;
+                    if (el && el.offsetTop <= scrollPosition) {
+                        currentActive = tab.id;
+                    }
+                }
+            }
+            
+            if (window.scrollY < 100) {
+                currentActive = "home";
+            }
+
+            setActive(currentActive);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [tabs]);
 
     const handleChange = (id: string, href?: string) => {
         setActive(id);
