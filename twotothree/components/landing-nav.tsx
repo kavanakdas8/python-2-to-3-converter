@@ -4,7 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { LogoIcon } from "./hero/logo-icon";
-import { ContinuousTabs } from "./continuoustab";
+
 import React from "react";
 
 export function LandingNav() {
@@ -33,9 +33,7 @@ export function LandingNav() {
           </span>
         </div>
 
-        <div className="hidden md:block">
-          <ContinuousTabs />
-        </div>
+
 
         <Link
           href="/convert"

@@ -82,7 +82,6 @@ export default function ConvertPage() {
               <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
                 Python 2
-                <span className="px-2 py-0.5 rounded-md bg-violet-500/10 text-violet-300 border border-violet-500/20 ml-1 text-xs">Legacy</span>
               </span>
               <button
                 onClick={() => setInputCode("")}
@@ -138,7 +137,6 @@ export default function ConvertPage() {
               <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-500"></span>
                 Python 3
-                <span className="px-2 py-0.5 rounded-md bg-violet-500/10 text-violet-300 border border-violet-500/20 ml-1 text-xs">Modern</span>
               </span>
               {outputCode && (
                 <button

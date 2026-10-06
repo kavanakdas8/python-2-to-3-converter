@@ -62,17 +62,7 @@ export function Footer() {
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-10 flex flex-col justify-between">
         
-        {/* ── Top Section: Tagline ── */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-24">
-          <motion.div variants={riseItem} className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 text-white">
-              Modernize legacy Python.<br />Build what’s next.
-            </h2>
-            <p className="text-lg text-neutral-400">
-              Python 2 &rarr; Python 3, made simpler.
-            </p>
-          </motion.div>
-        </div>
+
 
         {/* ── Middle Section: Links ── */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-16">

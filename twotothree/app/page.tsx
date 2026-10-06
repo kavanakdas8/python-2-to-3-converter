@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero/hero";
 import { LandingNav } from "@/components/landing-nav";
-import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 import { motion, type Variants } from "framer-motion";
 
@@ -27,33 +26,6 @@ const riseItem: Variants = {
   },
 };
 
-const faqs = [
-  {
-    id: "item-1",
-    question: "What does ModernizePy do?",
-    answer: "ModernizePy helps convert Python 2 code into Python 3-compatible code."
-  },
-  {
-    id: "item-2",
-    question: "Do I need to install anything?",
-    answer: "No. Paste your code into the workspace and start the conversion."
-  },
-  {
-    id: "item-3",
-    question: "Can I edit the converted code?",
-    answer: "Yes. The converted output is provided so you can review, modify, and use it in your project."
-  },
-  {
-    id: "item-4",
-    question: "Does ModernizePy support large files?",
-    answer: "ModernizePy is designed for code migration, but very large or complex projects may require additional manual review after conversion."
-  },
-  {
-    id: "item-5",
-    question: "Is the conversion automatic?",
-    answer: "The conversion is automated, but generated code should always be reviewed before being used in production."
-  }
-];
 
 export default function Home() {
 
@@ -67,7 +39,7 @@ export default function Home() {
       <LandingNav />
       <Hero />
 
-      {/* How it works */}
+      {/* How it works (2-Column Layout) */}
       <motion.section 
         id="how-it-works" 
         variants={staggerContainer}
@@ -76,120 +48,174 @@ export default function Home() {
         viewport={{ once: true, amount: 0.15 }}
         className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5"
       >
-        <motion.div variants={riseItem} className="mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">
-            Three steps.
-          </h2>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-            One modern codebase.
-          </h2>
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">01 — Paste your code</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">Drop your existing Python 2 code into the editor. No setup required.</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Column (Content & Steps) */}
+          <motion.div variants={riseItem} className="flex flex-col space-y-8">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-white/5 border border-white/10 px-3 py-1 text-sm font-medium text-neutral-300 mb-6">
+                <span className="mr-2 text-emerald-400">•</span> Automated Migration
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2 leading-tight">
+                Three steps.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">One modern codebase.</span>
+              </h2>
+            </div>
+            
+            <div className="flex flex-col space-y-6">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">01 — Paste your code</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed">Drop your existing Python 2 code into the editor. No setup required.</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">02 — Convert</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed">ModernizePy analyzes your code and applies the changes needed for Python 3.</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">03 — Review &amp; use</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed">Review the converted code, copy it, and continue building with Python 3.</p>
+              </div>
+            </div>
+
+            <div>
+              <Link href="/convert" className="inline-flex items-center justify-center rounded-full bg-emerald-500 hover:bg-emerald-400 px-6 py-3 text-sm font-medium text-neutral-950 shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all">
+                Learn more
+              </Link>
+            </div>
           </motion.div>
-          {/* Card 2 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">02 — Convert</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">ModernizePy analyzes your code and applies the changes needed for Python 3.</p>
+
+          {/* Right Column (3 Visual Metric Cards - Desktop) */}
+          <motion.div variants={riseItem} className="relative h-[600px] w-full hidden lg:block">
+            {/* Card 1 (Top Left Card) */}
+            <div className="absolute top-4 left-0 w-80 bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm z-20">
+              <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Migration Score</div>
+              <div className="text-5xl font-black text-white mb-3">100%</div>
+              <div className="flex gap-2 mb-6">
+                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium">Python 3</span>
+                <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-medium">Syntax Valid</span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Lines converted:</span>
+                  <span className="text-white font-medium">120</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Errors fixed:</span>
+                  <span className="text-white font-medium">0</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Speed:</span>
+                  <span className="text-white font-medium">0.4s</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 (Middle Floating / Overlapping Card on Right) */}
+            <div className="absolute top-28 right-0 w-80 bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm z-30 transform translate-x-4">
+              <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Changes Made</div>
+              <div className="text-2xl font-bold text-white mb-4">3 rules upgraded</div>
+              <div className="space-y-3 font-mono text-xs">
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">print "x"</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">print("x")</span>
+                </div>
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">xrange()</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">range()</span>
+                </div>
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">/</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">// <span className="text-neutral-600 font-sans">(integer division)</span></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 (Bottom Card) */}
+            <div className="absolute bottom-16 left-12 w-72 bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm z-10">
+              <div className="flex items-center justify-between mb-2">
+                <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider">Status</div>
+                <div className="text-xs font-medium text-emerald-400 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Instant
+                </div>
+              </div>
+              <div className="text-xl font-bold text-white mb-4 leading-tight">Zero manual fixes needed</div>
+              <div className="flex gap-2">
+                <span className="px-2 py-0.5 rounded bg-white/5 text-neutral-300 border border-white/10 text-xs font-medium">Clean Code</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium">Ready to Run</span>
+              </div>
+            </div>
           </motion.div>
-          {/* Card 3 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">03 — Review &amp; use</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">Review the converted code, copy it, and continue building with Python 3.</p>
+          
+          {/* Mobile Right Column */}
+          <motion.div variants={riseItem} className="flex flex-col gap-6 lg:hidden">
+            {/* Card 1 */}
+            <div className="w-full bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm">
+              <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Migration Score</div>
+              <div className="text-5xl font-black text-white mb-3">100%</div>
+              <div className="flex gap-2 mb-6">
+                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium">Python 3</span>
+                <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-medium">Syntax Valid</span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Lines converted:</span>
+                  <span className="text-white font-medium">120</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Errors fixed:</span>
+                  <span className="text-white font-medium">0</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-neutral-400">Speed:</span>
+                  <span className="text-white font-medium">0.4s</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="w-full bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm">
+              <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Changes Made</div>
+              <div className="text-2xl font-bold text-white mb-4">3 rules upgraded</div>
+              <div className="space-y-3 font-mono text-xs">
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">print "x"</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">print("x")</span>
+                </div>
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">xrange()</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">range()</span>
+                </div>
+                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
+                  <span className="text-red-400">/</span>
+                  <span className="text-neutral-500">➔</span>
+                  <span className="text-emerald-400">// <span className="text-neutral-600 font-sans">(int div)</span></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="w-full bg-neutral-900/80 border border-neutral-800 rounded-2xl p-5 shadow-2xl backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-2">
+                <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider">Status</div>
+                <div className="text-xs font-medium text-emerald-400 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Instant
+                </div>
+              </div>
+              <div className="text-xl font-bold text-white mb-4 leading-tight">Zero manual fixes needed</div>
+              <div className="flex gap-2">
+                <span className="px-2 py-0.5 rounded bg-white/5 text-neutral-300 border border-white/10 text-xs font-medium">Clean Code</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium">Ready to Run</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Why ModernizePy */}
-      <motion.section 
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5"
-      >
-        <motion.div variants={riseItem} className="mb-16 max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-white">
-            Legacy code shouldn't slow you down.
-          </h2>
-          <p className="text-lg text-neutral-400">
-            Python 2 is old. Your code doesn't have to stay that way.
-          </p>
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 4 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">Less manual work</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">Skip repetitive syntax changes and focus on the parts of your code that actually matter.</p>
-          </motion.div>
-          {/* Card 5 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">Clear conversions</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">See your original and modernized code side by side.</p>
-          </motion.div>
-          {/* Card 6 */}
-          <motion.div variants={riseItem} className="bg-white/5 border border-white/10 rounded-3xl ring-0 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)] flex flex-col p-6">
-            <h3 className="mb-2 text-lg font-bold text-white">Built for developers</h3>
-            <p className="text-neutral-400 text-sm leading-relaxed">A focused workspace with nothing getting in the way of the migration.</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Conversion Section Visual */}
-      <motion.section 
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5 text-center"
-      >
-        <motion.div variants={riseItem} className="mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-neutral-500">
-            From legacy.
-          </h2>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
-            To modern.
-          </h2>
-        </motion.div>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 w-full md:w-80">
-            <h3 className="text-xl font-bold text-white mb-4">Python 2</h3>
-            <p className="text-neutral-400">Old syntax.</p>
-            <p className="text-neutral-400">Old dependencies.</p>
-            <p className="text-neutral-400">Old assumptions.</p>
-          </motion.div>
-          <motion.div variants={riseItem} className="text-neutral-600">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rotate-90 md:rotate-0"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </motion.div>
-          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 w-full md:w-80">
-            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500 mb-4">Python 3</h3>
-            <p className="text-emerald-100/70">Modern syntax.</p>
-            <p className="text-emerald-100/70">Cleaner code.</p>
-            <p className="text-emerald-100/70">Ready for what comes next.</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* FAQ */}
-      <motion.div 
-        id="faq" 
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        className="relative z-10 w-full border-t border-white/5 bg-transparent"
-      >
-        <motion.div variants={riseItem}>
-          <Faq 
-            badge="Frequently asked questions"
-            title="Questions before you convert."
-            faqs={faqs}
-          />
-        </motion.div>
-      </motion.div>
 
 
       
