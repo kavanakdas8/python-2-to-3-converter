@@ -40,8 +40,8 @@ export default function Home() {
       <Hero />
 
       {/* How it works (2-Column Layout) */}
-      <motion.section 
-        id="how-it-works" 
+      <motion.section
+        id="how-it-works"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -49,18 +49,16 @@ export default function Home() {
         className="relative z-10 flex flex-col max-w-7xl mx-auto w-full px-6 py-24 border-t border-white/5"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Column (Content & Steps) */}
           <motion.div variants={riseItem} className="flex flex-col space-y-8">
             <div>
-              <span className="inline-flex items-center bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono mb-6">
-                <span className="mr-2 text-cyan-400">•</span> Automated Migration
-              </span>
+
               <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-cyan-200 font-semibold tracking-tight text-4xl sm:text-5xl mb-2 leading-tight">
-                Three steps.<br />One modern codebase.
+                Three steps,<br />One modern codebase.
               </h2>
             </div>
-            
+
             <div className="flex flex-col space-y-6">
               <div>
                 <h3 className="text-cyan-400 font-mono font-medium mb-1">01 — Paste your code</h3>
@@ -76,123 +74,73 @@ export default function Home() {
               </div>
             </div>
 
-            <div>
-              <Link href="/convert" className="inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-neutral-950 font-medium px-6 py-2.5 rounded-xl shadow-[0_0_25px_rgba(6,182,212,0.35)] transition-all active:scale-[0.97]">
-                Learn more
-              </Link>
-            </div>
           </motion.div>
 
           {/* Right Column (3 Visual Metric Cards - Desktop) */}
-          <motion.div variants={riseItem} className="relative h-[650px] w-full hidden lg:block">
+          <motion.div variants={riseItem} className="flex-col gap-6 w-full hidden lg:flex">
             {/* Card 1 (Top Left Card) */}
-            <div className="absolute top-0 left-0 w-80 backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-20">
+            <div className="self-start w-80 backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-20">
               <div className="text-slate-400 text-xs font-mono uppercase tracking-wider mb-2">Migration Score</div>
               <div className="text-white font-semibold text-3xl tracking-tight mb-3">100%</div>
-              <div className="flex gap-2 mb-6">
-                <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 px-2.5 py-0.5 rounded-full text-xs">Python 3</span>
-                <span className="bg-cyan-500/15 text-cyan-300 border border-cyan-500/25 px-2.5 py-0.5 rounded-full text-xs">Syntax Valid</span>
-              </div>
-              <div className="space-y-1.5 text-slate-300 text-xs">
-                <div className="flex justify-between">
-                  <span>Lines converted:</span>
-                  <span className="font-medium text-white">120</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Errors fixed:</span>
-                  <span className="font-medium text-white">0</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Speed:</span>
-                  <span className="font-medium text-white">0.4s</span>
-                </div>
-              </div>
+              <ul className="list-disc list-inside text-xs font-medium text-slate-400 space-y-1">
+                <li>Python 3</li>
+                <li>Syntax Valid</li>
+              </ul>
             </div>
 
             {/* Card 2 (Middle Right Card) */}
-            <div className="absolute top-[220px] right-0 w-80 backdrop-blur-xl bg-white/[0.06] border border-white/[0.14] shadow-2xl shadow-cyan-900/40 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-30">
+            <div className="self-end w-80 backdrop-blur-xl bg-white/[0.06] border border-white/[0.14] shadow-2xl shadow-cyan-900/40 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-30">
               <div className="text-slate-400 text-xs font-mono uppercase tracking-wider mb-2">Changes Made</div>
-              <div className="text-cyan-100 font-medium text-lg mb-4">3 rules upgraded</div>
+
               <div className="space-y-3 font-mono text-xs">
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">print "x"</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">print("x")</span>
-                </div>
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">xrange()</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">range()</span>
-                </div>
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">/</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">// <span className="text-slate-600 font-sans">(integer division)</span></span>
+                <ul className="list-disc list-inside text-slate-400 space-y-1 mb-2">
+                  <li>print "x" ➔ print("x")</li>
+                  <li>xrange() ➔ range()</li>
+                  <li>/ ➔ // (integer division)</li>
+                </ul>
+                <div className="text-center pt-1 text-slate-500 font-sans italic text-[11px]">
+                  And much more...
                 </div>
               </div>
             </div>
 
             {/* Card 3 (Bottom Card) */}
-            <div className="absolute top-[460px] left-8 w-72 backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-10">
+            <div className="self-start ml-8 w-72 backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 z-10">
               <div className="flex items-center justify-between mb-2">
                 <div className="text-slate-400 text-xs font-mono uppercase tracking-wider">Status</div>
-                <div className="text-xs font-medium text-cyan-400 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> Instant
-                </div>
               </div>
               <div className="text-white font-medium text-base mb-4 leading-tight">Zero manual fixes needed</div>
-              <div className="flex gap-2">
-                <span className="bg-violet-500/15 text-violet-300 border border-violet-500/25 px-2.5 py-0.5 rounded-full text-xs">Clean Code</span>
-                <span className="bg-cyan-500/15 text-cyan-300 border border-cyan-500/25 px-2.5 py-0.5 rounded-full text-xs">Ready to Run</span>
-              </div>
+              <ul className="list-disc list-inside text-xs font-medium text-slate-400 space-y-1">
+                <li>Clean Code</li>
+                <li>Ready to Run</li>
+              </ul>
             </div>
           </motion.div>
-          
+
           {/* Mobile Right Column */}
           <motion.div variants={riseItem} className="flex flex-col gap-6 lg:hidden">
             {/* Card 1 */}
             <div className="w-full backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300">
               <div className="text-slate-400 text-xs font-mono uppercase tracking-wider mb-2">Migration Score</div>
               <div className="text-white font-semibold text-3xl tracking-tight mb-3">100%</div>
-              <div className="flex gap-2 mb-6">
-                <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 px-2.5 py-0.5 rounded-full text-xs">Python 3</span>
-                <span className="bg-cyan-500/15 text-cyan-300 border border-cyan-500/25 px-2.5 py-0.5 rounded-full text-xs">Syntax Valid</span>
-              </div>
-              <div className="space-y-1.5 text-slate-300 text-xs">
-                <div className="flex justify-between">
-                  <span>Lines converted:</span>
-                  <span className="font-medium text-white">120</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Errors fixed:</span>
-                  <span className="font-medium text-white">0</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Speed:</span>
-                  <span className="font-medium text-white">0.4s</span>
-                </div>
-              </div>
+              <ul className="list-disc list-inside text-xs font-medium text-slate-400 space-y-1">
+                <li>Python 3</li>
+                <li>Syntax Valid</li>
+              </ul>
             </div>
 
             {/* Card 2 */}
             <div className="w-full backdrop-blur-xl bg-white/[0.06] border border-white/[0.14] shadow-2xl shadow-cyan-900/40 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300">
               <div className="text-slate-400 text-xs font-mono uppercase tracking-wider mb-2">Changes Made</div>
-              <div className="text-cyan-100 font-medium text-lg mb-4">3 rules upgraded</div>
+
               <div className="space-y-3 font-mono text-xs">
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">print "x"</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">print("x")</span>
-                </div>
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">xrange()</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">range()</span>
-                </div>
-                <div className="flex items-center gap-2 bg-black/50 p-2 rounded-lg border border-white/5">
-                  <span className="text-red-400">/</span>
-                  <span className="text-slate-500">➔</span>
-                  <span className="text-cyan-400">// <span className="text-slate-600 font-sans">(integer division)</span></span>
+                <ul className="list-disc list-inside text-slate-400 space-y-1 mb-2">
+                  <li>print "x" ➔ print("x")</li>
+                  <li>xrange() ➔ range()</li>
+                  <li>/ ➔ // (integer division)</li>
+                </ul>
+                <div className="text-center pt-1 text-slate-500 font-sans italic text-[11px]">
+                  And much more...
                 </div>
               </div>
             </div>
@@ -201,15 +149,13 @@ export default function Home() {
             <div className="w-full backdrop-blur-xl bg-white/[0.04] border border-white/[0.1] shadow-2xl shadow-cyan-950/30 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
                 <div className="text-slate-400 text-xs font-mono uppercase tracking-wider">Status</div>
-                <div className="text-xs font-medium text-cyan-400 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> Instant
-                </div>
+
               </div>
               <div className="text-white font-medium text-base mb-4 leading-tight">Zero manual fixes needed</div>
-              <div className="flex gap-2">
-                <span className="bg-violet-500/15 text-violet-300 border border-violet-500/25 px-2.5 py-0.5 rounded-full text-xs">Clean Code</span>
-                <span className="bg-cyan-500/15 text-cyan-300 border border-cyan-500/25 px-2.5 py-0.5 rounded-full text-xs">Ready to Run</span>
-              </div>
+              <ul className="list-disc list-inside text-xs font-medium text-slate-400 space-y-1">
+                <li>Clean Code</li>
+                <li>Ready to Run</li>
+              </ul>
             </div>
           </motion.div>
         </div>
@@ -217,7 +163,7 @@ export default function Home() {
 
 
 
-      
+
       <Footer />
     </div>
   );
