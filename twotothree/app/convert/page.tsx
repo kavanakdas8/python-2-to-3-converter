@@ -49,7 +49,7 @@ export default function ConvertPage() {
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full bg-gradient-to-b from-cyan-500/20 via-violet-600/20 to-transparent blur-[140px]" />
-        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[70%] rounded-full bg-emerald-500/10 blur-[130px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[70%] rounded-full bg-blue-500/10 blur-[130px]" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">

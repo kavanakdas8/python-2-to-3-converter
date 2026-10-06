@@ -26,7 +26,7 @@ export function LandingNav() {
       >
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">
-            <LogoIcon className="w-7 h-7 text-white drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]" />
+            <LogoIcon className="w-7 h-7 text-white drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
           </div>
           <span className="text-lg font-bold tracking-tight text-white hidden sm:block">
             ModernizePy
@@ -37,7 +37,7 @@ export function LandingNav() {
 
         <Link
           href="/convert"
-          className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 px-5 py-2 text-sm font-bold text-white shadow-[inset_0_2px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.2)] transition-all hover:shadow-[0_0_20px_rgba(52,211,153,0.4)] active:scale-[0.96]"
+          className="flex items-center gap-1.5 rounded-full bg-cyan-500 hover:bg-cyan-400 px-5 py-2 text-sm font-bold text-neutral-950 shadow-[0_0_15px_rgba(6,182,212,0.35)] transition-all active:scale-[0.96]"
         >
           Try it now <ArrowRight className="w-4 h-4" />
         </Link>
