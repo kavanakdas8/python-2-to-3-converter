@@ -33,7 +33,7 @@ export function Hero() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-[#050608] overflow-hidden text-neutral-50 font-sans selection:bg-emerald-500/30">
+    <div className="relative min-h-[70vh] flex flex-col bg-[#050608] overflow-hidden text-neutral-50 font-sans selection:bg-emerald-500/30">
       {/* Background Aurora Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[-10%] left-[-20%] w-[60%] h-[70%] rounded-full bg-emerald-500/10 blur-[150px] opacity-70" />
@@ -41,7 +41,7 @@ export function Hero() {
         <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[70%] rounded-full bg-violet-500/10 blur-[150px] opacity-70" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen flex-col">
+      <div className="relative z-10 flex min-h-[70vh] flex-col">
 
         {/* Hero Main Content */}
         <div className="flex flex-1 items-center justify-center px-6 pb-16 sm:pb-24">

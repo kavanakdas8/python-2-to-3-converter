@@ -17,12 +17,12 @@ export function LandingNav() {
   };
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-[100] flex justify-center pointer-events-none">
+    <div className="fixed top-0 left-0 right-0 z-[100] flex justify-center pointer-events-none">
       <motion.nav
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="pointer-events-auto flex w-fit items-center gap-8 rounded-full bg-white/5 border border-white/10 px-4 py-2 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md"
+        className="pointer-events-auto flex w-full items-center justify-between bg-[#050608]/80 border-b border-white/10 px-6 py-1.5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md"
       >
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">
