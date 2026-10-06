@@ -58,7 +58,12 @@ const faqs = [
 export default function Home() {
 
   return (
-    <div className="min-h-screen bg-[#050608] text-zinc-100 font-sans selection:bg-emerald-500/30 flex flex-col">
+    <div className="relative min-h-screen bg-transparent text-zinc-100 font-sans selection:bg-cyan-500/30 flex flex-col">
+      {/* Background Aurora Orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full bg-gradient-to-b from-cyan-500/20 via-violet-600/20 to-transparent blur-[140px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[70%] rounded-full bg-emerald-500/10 blur-[130px]" />
+      </div>
       <LandingNav />
       <Hero />
 
@@ -150,7 +155,7 @@ export default function Home() {
           </h2>
         </motion.div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl w-full md:w-80">
+          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 w-full md:w-80">
             <h3 className="text-xl font-bold text-white mb-4">Python 2</h3>
             <p className="text-neutral-400">Old syntax.</p>
             <p className="text-neutral-400">Old dependencies.</p>
@@ -159,8 +164,8 @@ export default function Home() {
           <motion.div variants={riseItem} className="text-neutral-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rotate-90 md:rotate-0"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </motion.div>
-          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-xl w-full md:w-80 shadow-[0_0_30px_rgba(52,211,153,0.1)]">
-            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500 mb-4">Python 3</h3>
+          <motion.div variants={riseItem} className="text-left space-y-2 p-8 rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 w-full md:w-80">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500 mb-4">Python 3</h3>
             <p className="text-emerald-100/70">Modern syntax.</p>
             <p className="text-emerald-100/70">Cleaner code.</p>
             <p className="text-emerald-100/70">Ready for what comes next.</p>
@@ -175,7 +180,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
-        className="relative z-10 w-full border-t border-white/5 bg-[#050608]"
+        className="relative z-10 w-full border-t border-white/5 bg-transparent"
       >
         <motion.div variants={riseItem}>
           <Faq 

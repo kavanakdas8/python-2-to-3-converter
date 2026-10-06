@@ -58,7 +58,7 @@ export function Footer() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
-      className="relative w-full bg-[#050608] text-neutral-300 font-sans overflow-hidden selection:bg-emerald-500/30"
+      className="relative w-full bg-transparent text-neutral-300 font-sans overflow-hidden selection:bg-cyan-500/30"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-10 flex flex-col justify-between">
         

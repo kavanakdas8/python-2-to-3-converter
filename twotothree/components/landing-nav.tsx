@@ -22,7 +22,7 @@ export function LandingNav() {
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="pointer-events-auto flex w-full items-center justify-between bg-[#050608]/80 border-b border-white/10 px-6 py-1.5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md"
+        className="pointer-events-auto flex w-full items-center justify-between bg-transparent border-b border-white/10 px-6 py-1.5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md"
       >
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">

@@ -44,12 +44,12 @@ export default function ConvertPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050608] text-zinc-100 font-sans selection:bg-emerald-500/30 flex flex-col p-6">
+    <div className="min-h-screen bg-transparent text-zinc-100 font-sans selection:bg-cyan-500/30 flex flex-col p-6">
       
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-20%] w-[60%] h-[70%] rounded-full bg-emerald-500/5 blur-[150px] opacity-50" />
-        <div className="absolute top-[10%] right-[-20%] w-[50%] h-[60%] rounded-full bg-blue-500/5 blur-[150px] opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full bg-gradient-to-b from-cyan-500/20 via-violet-600/20 to-transparent blur-[140px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[70%] rounded-full bg-emerald-500/10 blur-[130px]" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
@@ -77,12 +77,12 @@ export default function ConvertPage() {
         {/* Workspace */}
         <div className="flex flex-col lg:flex-row gap-6 min-h-[600px]">
           {/* Input Panel */}
-          <div className="group flex-1 flex flex-col rounded-2xl border border-white/5 bg-black/40 backdrop-blur-2xl overflow-hidden shadow-[inset_0_0_20px_rgba(52,211,153,0.02),0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/10 hover:shadow-[inset_0_0_20px_rgba(52,211,153,0.1),0_10px_40px_rgba(0,0,0,0.8)]">
-            <div className="h-12 border-b border-white/5 bg-white/5 flex items-center px-4 justify-between">
+          <div className="group flex-1 flex flex-col rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 overflow-hidden transition-all duration-500 hover:border-white/[0.12]">
+            <div className="h-12 border-b border-white/[0.08] bg-transparent flex items-center px-4 justify-between">
               <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
                 Python 2
-                <span className="text-neutral-500 ml-1">Legacy</span>
+                <span className="px-2 py-0.5 rounded-md bg-violet-500/10 text-violet-300 border border-violet-500/20 ml-1 text-xs">Legacy</span>
               </span>
               <button
                 onClick={() => setInputCode("")}
@@ -95,7 +95,7 @@ export default function ConvertPage() {
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
               placeholder="Paste your Python 2 code here..."
-              className="flex-1 w-full bg-transparent p-6 text-sm font-mono text-zinc-200 focus:outline-none resize-none placeholder:text-zinc-700 leading-relaxed"
+              className="flex-1 w-full bg-transparent p-6 text-sm font-mono text-zinc-200 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 resize-none placeholder:text-zinc-700 leading-relaxed border border-transparent"
               spellCheck="false"
             />
           </div>
@@ -105,13 +105,13 @@ export default function ConvertPage() {
             <button
               onClick={handleConvert}
               disabled={isLoading || !inputCode.trim()}
-              className="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-violet-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-110 active:scale-95 overflow-hidden group"
+              className="relative flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500 hover:bg-cyan-400 text-neutral-950 font-medium shadow-[0_0_20px_rgba(6,182,212,0.35)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-500 hover:scale-110 active:scale-95 overflow-hidden group"
               aria-label="Convert Code"
             >
               {isLoading ? (
                 <>
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-blue-500 to-violet-500 animate-[spin_3s_linear_infinite]" />
-                  <div className="absolute inset-0.5 bg-[#050608] rounded-full flex items-center justify-center">
+                  <div className="absolute inset-0 bg-cyan-500 animate-[spin_3s_linear_infinite]" />
+                  <div className="absolute inset-0.5 bg-[#07090e] rounded-full flex items-center justify-center">
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   </div>
                 </>
@@ -133,12 +133,12 @@ export default function ConvertPage() {
           </div>
 
           {/* Output Panel */}
-          <div className="group flex-1 flex flex-col rounded-2xl border border-white/5 bg-black/40 backdrop-blur-2xl overflow-hidden shadow-[inset_0_0_20px_rgba(59,130,246,0.02),0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/10 hover:shadow-[inset_0_0_20px_rgba(59,130,246,0.1),0_10px_40px_rgba(0,0,0,0.8)]">
-            <div className="h-12 border-b border-white/5 bg-white/5 flex items-center px-4 justify-between">
+          <div className="group flex-1 flex flex-col rounded-2xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-2xl shadow-cyan-950/20 overflow-hidden transition-all duration-500 hover:border-white/[0.12]">
+            <div className="h-12 border-b border-white/[0.08] bg-transparent flex items-center px-4 justify-between">
               <span className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                <span className="w-2 h-2 rounded-full bg-cyan-500"></span>
                 Python 3
-                <span className="text-neutral-500 ml-1">Modern</span>
+                <span className="px-2 py-0.5 rounded-md bg-violet-500/10 text-violet-300 border border-violet-500/20 ml-1 text-xs">Modern</span>
               </span>
               {outputCode && (
                 <button
@@ -185,7 +185,7 @@ export default function ConvertPage() {
                   readOnly
                   value={outputCode}
                   placeholder={isLoading ? "" : "Your modernized code will appear here..."}
-                  className="w-full h-full bg-transparent p-6 text-sm font-mono text-zinc-200 focus:outline-none resize-none placeholder:text-zinc-700 leading-relaxed"
+                  className="w-full h-full bg-transparent p-6 text-sm font-mono text-cyan-200/90 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 resize-none placeholder:text-zinc-700 leading-relaxed border border-transparent"
                 />
               )}
             </div>
