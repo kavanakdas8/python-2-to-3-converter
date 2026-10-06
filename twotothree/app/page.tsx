@@ -55,7 +55,7 @@ export default function Home() {
             <div>
 
               <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-cyan-200 font-semibold tracking-tight text-4xl sm:text-5xl mb-2 leading-tight">
-                Three steps,<br />One modern codebase.
+                Three steps.<br />One modern codebase.
               </h2>
             </div>
 
