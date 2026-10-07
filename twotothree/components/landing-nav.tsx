@@ -22,11 +22,11 @@ export function LandingNav() {
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="pointer-events-auto flex w-full items-center justify-between bg-transparent border-b border-white/10 px-6 py-1.5 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-md"
+        className="pointer-events-auto flex w-full items-center justify-between bg-transparent px-6 py-4"
       >
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">
-            <LogoIcon className="w-7 h-7 text-white drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+            <LogoIcon className="w-7 h-7 text-white" />
           </div>
           <span className="text-lg font-bold tracking-tight text-white hidden sm:block">
             ModernizePy
@@ -37,9 +37,12 @@ export function LandingNav() {
 
         <Link
           href="/convert"
-          className="flex items-center gap-1.5 rounded-full bg-cyan-500 hover:bg-cyan-400 px-5 py-2 text-sm font-bold text-neutral-950 shadow-[0_0_15px_rgba(6,182,212,0.35)] transition-all active:scale-[0.96]"
+          className="group flex items-center gap-3 rounded-full bg-white hover:bg-neutral-200 pl-5 pr-1.5 py-1.5 text-sm font-semibold text-black transition-all active:scale-[0.96]"
         >
-          Try it now <ArrowRight className="w-4 h-4" />
+          Try it now
+          <div className="w-7 h-7 bg-black rounded-full flex items-center justify-center">
+            <ArrowRight className="w-3.5 h-3.5 text-white -rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </div>
         </Link>
       </motion.nav>
     </div>

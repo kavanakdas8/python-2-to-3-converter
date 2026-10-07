@@ -33,7 +33,7 @@ export function Hero() {
   };
 
   return (
-    <div className="relative min-h-[70vh] flex flex-col bg-transparent overflow-hidden text-neutral-50 font-sans selection:bg-cyan-500/30">
+    <div className="relative min-h-[70vh] flex flex-col bg-transparent overflow-hidden text-neutral-50 font-sans selection:bg-white/20">
 
       <div className="relative z-10 flex min-h-[70vh] flex-col">
 
@@ -46,13 +46,13 @@ export function Hero() {
               variants={titleVariants}
               initial="hidden"
               animate="visible"
-              className="leading-[1.1] font-extrabold tracking-tight mb-6 max-w-4xl"
+              className="leading-[1.1] mb-8 max-w-5xl"
               style={{ textWrap: 'balance' }}
             >
-              <span className="block text-[48px] sm:text-[64px] text-white mb-2">
+              <span className="block text-[56px] sm:text-[84px] font-bold text-white mb-0 tracking-tight">
                 Modernize your Python
               </span>
-              <span className="block text-[40px] sm:text-[54px] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-500 to-violet-500">
+              <span className="block text-[56px] sm:text-[84px] font-bold text-white mb-0 tracking-tight">
                 Without rewriting it by hand
               </span>
             </motion.h1>
@@ -77,13 +77,15 @@ export function Hero() {
             >
               <Link
                 href="/convert"
-                className="group flex min-h-12 items-center gap-2 rounded-full bg-cyan-500 hover:bg-cyan-400 px-8 text-base font-medium text-neutral-950 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition-all active:scale-[0.96]"
+                className="group flex min-h-14 items-center gap-4 rounded-full bg-white hover:bg-neutral-200 pl-8 pr-2 py-2 text-lg font-semibold text-black transition-all active:scale-[0.96]"
               >
                 Start converting
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                  <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                </div>
               </Link>
 
-              <div className="text-neutral-400 text-sm space-y-1.5">
+              <div className="text-neutral-500 text-sm space-y-1.5 font-medium">
                 <p>No setup. Just paste, convert, and move forward.</p>
               </div>
             </motion.div>
